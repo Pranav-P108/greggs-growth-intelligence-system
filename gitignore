@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large/raw source data
+data/raw/
+data/interim/
+*.zip
+*.h5
+*.hdf5
+
+# Power BI local/cache files
+*.pbix
+*.pbit
+
+# Secrets
+.env
