@@ -1,0 +1,11 @@
+finding,value,interpretation
+England analytical network,"1,746 stores","Stores with complete England socioeconomic, geographic and competition data."
+Urban network concentration,89.3% urban,Greggs' English network is strongly concentrated in urban locations.
+Higher-deprivation representation,45.4% in IMD deciles 1-3,Higher-deprivation areas are strongly represented within the existing network.
+Lower-deprivation representation,15.2% in IMD deciles 8-10,The least-deprived areas account for a substantially smaller share of stores.
+Nearest major competitor,73 m median distance,Major food-to-go competition is typically located very close to Greggs stores.
+Local competition density,3 competitors within 1 km,The typical Greggs location operates alongside several selected major competitors.
+Largest strategic segment,Lower-Competition Local Markets: 791 stores (45.3%),K-Means identifies this as the most common structural store environment.
+Largest strategic action context,Defend & Differentiate: 475 stores (27.2%),This is the most common market-scale and competition context across the analytical network.
+Growth Benchmark concentration,Trafford 58.3% (7/12 stores),Highest Growth Benchmark concentration among authorities containing at least 10 analysed stores.
+Defend & Differentiate concentration,Hounslow 80.0% (8/10 stores),Highest competitive large-market concentration among authorities containing at least 10 analysed stores.

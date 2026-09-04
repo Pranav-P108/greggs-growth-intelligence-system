@@ -1,0 +1,5 @@
+research_question,test,statistic,p_value,effect_measure,effect_size,effect_interpretation,conclusion
+Do urban and rural stores differ in deprivation?,Welch's t-test,16.9,1.00654e-48,Hedges' g,0.78,Moderate-to-large,Urban stores are substantially more deprived than rural stores.
+Do urban and rural stores differ in local competition?,Mann-Whitney U,200945.0,1.5203e-17,Rank-biserial correlation,0.379,Moderate,Urban stores generally face greater local competition.
+Is deprivation associated with local competition?,Spearman rank correlation,0.112,2.834801497757643e-06,Spearman rho,0.112,Weak,Deprivation has only a weak positive association with competition.
+Does competition differ across deprivation groups?,Kruskal-Wallis,32.417,9.134726359308152e-08,Epsilon-squared,0.017,Small,"Competition differs across deprivation groups, but the effect is small."

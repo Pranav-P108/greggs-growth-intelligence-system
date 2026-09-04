@@ -1,0 +1,14 @@
+check,status,result
+UK store count,PASS,"2,174 rows"
+Unique OSM store identifiers,PASS,0 duplicates
+Store coordinates complete,PASS,0 missing
+Coordinates within plausible UK bounds,PASS,Latitude 50.26 to 57.65; Longitude -7.31 to 1.75
+UK nation counts,PASS,"{'England': 1746, 'Scotland': 252, 'Wales': 156, 'Northern Ireland': 20}"
+England analytical fields complete,PASS,0 missing values
+England IMD deciles valid,PASS,Expected range: 1 to 10
+England-only strategy scope preserved,PASS,0 non-England strategy assignments
+500 m competition count <= 1 km count,PASS,0 inconsistencies
+500 m brand diversity <= 1 km diversity,PASS,0 inconsistencies
+Strategic action counts,PASS,"{'Defend & Differentiate': 475, 'Local Coverage': 473, 'Competitive Exposure': 400, 'Growth Benchmark Context': 398}"
+Required Power BI fields present,PASS,All required fields available
+Power BI CSV reload,PASS,"2,174 rows x 97 columns"

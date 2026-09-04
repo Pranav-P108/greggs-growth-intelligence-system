@@ -1,0 +1,4 @@
+cluster,segment,stores,mean_imd,median_imd_decile,mean_population,mean_competitors_1km,median_competitors_1km,mean_brand_diversity,median_nearest_competitor_m,urban_share_pct,network_share_pct,description
+0,Competitive Urban Hubs,504,21.43,5.0,2329.0,11.19,6.0,4.31,48.9,91.7,28.9,"High-population locations operating in dense, highly competitive commercial environments."
+1,Lower-Competition Local Markets,791,19.06,5.0,1647.0,1.9,1.0,1.63,95.2,82.2,45.3,Locations characterised by lower surrounding competitive intensity and smaller local population.
+2,High-Deprivation Urban Core,451,51.77,1.0,1743.0,4.27,4.0,2.87,85.4,99.1,25.8,Predominantly urban locations strongly concentrated in England's most deprived neighbourhoods.
