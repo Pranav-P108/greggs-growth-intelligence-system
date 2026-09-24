@@ -521,3 +521,27 @@ greggs-growth-intelligence-system/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+
+
+### One thing before you commit
+
+Check the four screenshot filenames inside `outputs/dashboard/`.
+
+If they are exactly:
+
+- `01_growth_opportunity_overview.png`
+- `02_top_expansion_markets.png`
+- `03_candidate_market_intelligence.png`
+- `04_expansion_model_qa.png`
+
+then paste this README **exactly as it is**.
+
+If your screenshot names are slightly different, tell me the four filenames and I’ll give you the corrected image links.
+
+Also rename `Readme.md` → **`README.md`** while saving if GitHub allows it.
+
+Suggested commit message:
+
+**`Update README for expansion intelligence system`**
+
+Once you save it, send me the **rendered GitHub README page**, not the editor. I want to check that all four dashboard images render properly and that nothing looks broken before we move to the LinkedIn post. 
