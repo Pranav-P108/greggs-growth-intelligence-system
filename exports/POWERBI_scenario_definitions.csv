@@ -1,0 +1,4 @@
+scenario,market_scale_weight,coverage_gap_weight,selected_chain_activity_weight
+Balanced Growth,0.4,0.3,0.3
+Coverage Led,0.25,0.5,0.25
+Market Led,0.55,0.2,0.25

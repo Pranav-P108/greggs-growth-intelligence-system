@@ -1,0 +1,17 @@
+check,status,observed,expected
+Candidate universe contains all IoD LSOAs,PASS,"33,755","33,755"
+Candidate LSOA identifiers are unique,PASS,0,0
+Candidate coordinates complete,PASS,0,0
+Eligible markets have no Greggs within 5 km,PASS,0,0
+Eligible markets have selected-chain evidence,PASS,0,0
+All scenario weights sum to 1,PASS,"{'balanced_growth': 1.0, 'coverage_led': 1.0, 'market_led': 1.0}",1.00 for every scenario
+Scenario scores complete,PASS,0,0
+Primary markets respect 5 km separation,PASS,0,0
+Minimum observed candidate separation,PASS,5.0,>= 5.0 km
+Final shortlist contains 20 markets,PASS,20,20
+Final shortlist has unique candidate labels,PASS,0,0
+Final shortlist has no Greggs within 5 km,PASS,0,0
+Top 20 spans at least 15 local authorities,PASS,19,>= 15
+Top 20 have meaningful selected-chain evidence,PASS,20,>= 18 of 20
+Majority of Top 20 have high scenario consensus,PASS,20,>= 10 of 20
+Compatibility diagnostics complete,PASS,0,0
