@@ -1,42 +1,74 @@
 # Greggs Growth Intelligence System
 
-An end-to-end **geospatial data science and business intelligence project** that explores the UK Greggs store network, local competitive intensity, socioeconomic context and strategic market structure using public data.
+### Expansion Opportunity & Location Intelligence for the Greggs UK Store Network
 
-The project combines **OpenStreetMap**, **ONS postcode geography**, **Indices of Deprivation 2025**, statistical analysis, K-Means clustering and Power BI to turn raw location data into an interpretable market-intelligence system.
+An end-to-end geospatial data science and business intelligence project designed to explore a practical question:
 
-> **Independent portfolio project:** This work was created for analytical and educational purposes. It is not an official Greggs plc project and is not endorsed by Greggs plc.
+> **Where could Greggs investigate opening new stores in England?**
 
-## Project at a Glance
+The project combines Greggs' existing store network, selected food-to-go competitors, population, deprivation, rural/urban context and spatial accessibility to screen potential expansion markets across England.
 
-- **2,174 Greggs stores** mapped across the UK
-- **7,815 cleaned competitor locations** across six selected brands
-- **1,746 England stores** enriched with socioeconomic and strategic features
-- **97-field Power BI master dataset** for reporting and analysis
-- Statistical testing of deprivation and competition patterns
-- **3 stable K-Means market segments**
-- **4 strategic market contexts** translated into decision-oriented actions
-- Four-page **Power BI Growth Intelligence Dashboard**
+Rather than simply ranking locations using one score, the system uses multiple strategic scenarios, spatial de-duplication, existing-network compatibility and robustness testing to produce a shortlist of markets for further investigation.
 
-## Business Questions
+> **Independent portfolio project. This analysis is not affiliated with, commissioned by, or based on internal data from Greggs plc.**
 
-This project was designed to answer five practical questions:
+---
 
-1. Where is the Greggs store network concentrated across the UK?
-2. How close are selected major food-to-go and QSR competitors to Greggs stores?
-3. What socioeconomic characteristics surround Greggs locations in England?
-4. Can stores be grouped into meaningful market segments using unsupervised learning?
-5. How can market scale and competitive pressure be translated into interpretable strategic contexts?
+## Project Overview
+
+The project began by analysing the existing Greggs network and its competitive and socioeconomic context.
+
+It was then extended into an expansion-intelligence system that screens England at LSOA level and progressively narrows the candidate universe.
+
+### Expansion Screening Pipeline
+
+**33,755 English LSOAs screened**
+
+↓  
+
+**1,686 eligible expansion areas**
+
+↓  
+
+**266 spatially distinct candidate markets**
+
+↓  
+
+**20 priority markets**
+
+↓  
+
+**19 local authorities represented**
+
+The final expansion model passed:
+
+**16 / 16 QA checks**
+
+---
+
+## Business Question
+
+The project aims to support questions such as:
+
+- Where are meaningful gaps in the current Greggs network?
+- Which areas combine population scale with limited nearby Greggs coverage?
+- Where does activity from selected food-to-go competitors suggest an established commercial market?
+- Which candidate markets remain attractive under different strategic assumptions?
+- Which opportunities resemble market environments where Greggs already operates?
+- How sensitive is the shortlist to spatial and modelling assumptions?
+
+The output should be interpreted as a **market-screening and decision-support framework**, not as a confirmed store-opening recommendation.
+
+---
 
 ## Data Sources
 
-| Source | Role in the project |
-|---|---|
-| OpenStreetMap | Greggs and selected competitor locations |
-| ONS Postcode Directory, May 2026 | Postcode coordinates, LSOA geography and local-authority mapping |
-| English Indices of Deprivation 2025 | IMD and domain-level socioeconomic indicators for England |
+The analysis integrates public and open datasets including:
 
-Selected competitor brands analysed:
+### OpenStreetMap
+Used to identify:
 
+- Greggs store locations
 - Costa Coffee
 - Subway
 - McDonald's
@@ -44,121 +76,408 @@ Selected competitor brands analysed:
 - Burger King
 - Pret A Manger
 
-## Analytical Workflow
+The selected competitor dataset contains approximately **7,815 locations**.
 
-### 1. Store and competitor data preparation
+### ONS Postcode Directory
 
-Greggs and competitor locations were collected from OpenStreetMap, cleaned, deduplicated and validated. Suspicious non-store objects and explicit brand conflicts were removed before spatial analysis.
+Used for geographic linkage, coordinates and administrative geography.
 
-### 2. Geographic and socioeconomic enrichment
+### English Indices of Deprivation 2025
 
-Greggs locations were matched to the ONS Postcode Directory and then linked to 2025 English deprivation data. Stores without an OSM postcode were spatially recovered using the nearest postcode centroid.
+Used for England-specific socioeconomic context.
 
-### 3. Spatial competition engineering
+### Population and Rural / Urban Classification
 
-For every Greggs store, the pipeline calculates features such as:
+Used to estimate local market scale and settlement characteristics.
 
-- nearest selected competitor and distance
-- competitors within 500 m and 1 km
-- competitor-brand diversity
-- brand-specific proximity
-- dominant competitor within 1 km
-- competition-environment classification
+---
 
-### 4. Exploratory and statistical analysis
+## Existing Network Baseline
 
-The analysis examines:
+Before identifying expansion candidates, the existing Greggs network was analysed to understand the environments in which the company currently operates.
 
-- UK network distribution
-- deprivation profile of English Greggs stores
-- urban vs rural differences
-- competitor proximity and density
-- relationships between deprivation and competition
+The cleaned network contains:
 
-Statistical methods include Welch's t-test, Mann-Whitney U, Spearman correlation, Kruskal-Wallis testing and effect-size reporting.
+- **2,174 Greggs stores across the UK**
+- **1,746 stores in England**
+- **252 stores in Scotland**
+- **156 stores in Wales**
+- **20 stores in Northern Ireland**
 
-### 5. K-Means market segmentation
+Selected competitor proximity was also calculated spatially.
 
-K-Means clustering was applied to three non-redundant features:
+Key network findings included:
 
-- IMD score
-- local population
+- Median nearest selected competitor distance: **79 m**
+- **77.1%** of Greggs stores have a selected major competitor within **500 m**
+- **85.4%** have one within **1 km**
+
+This existing-network analysis provides context for the later expansion screening.
+
+---
+
+## Expansion Methodology
+
+### 1. Candidate Market Universe
+
+All **33,755 English LSOAs** were evaluated as potential market areas.
+
+Each candidate was enriched with:
+
+- population
+- deprivation
+- rural / urban classification
+- Greggs network proximity
+- selected competitor activity
+- local authority
+- geographic coordinates
+
+---
+
+### 2. Greggs Network Coverage
+
+Spatial calculations measured:
+
+- nearest existing Greggs distance
+- Greggs stores within 1 km
+- Greggs stores within 3 km
+- Greggs stores within 5 km
+
+A major eligibility condition required candidate expansion areas to have:
+
+> **No existing Greggs within 5 km**
+
+This produced a meaningful network-gap universe rather than recommending areas already strongly covered.
+
+---
+
+### 3. Selected-Chain Activity
+
+The six selected competitor brands were analysed around each candidate location.
+
+Features include:
+
 - competitors within 1 km
+- competitors within 3 km
+- competitors within 5 km
+- selected-brand diversity
+- nearest selected competitor
+- competitor activity index
 
-A three-cluster solution provided the strongest combination of statistical quality, stability and business interpretability.
+Competitor presence is treated as **market evidence**, not proof of demand or profitability.
 
-Final segments:
+---
 
-| Segment | Stores | Interpretation |
-|---|---:|---|
-| Lower-Competition Local Markets | 791 | Lower-pressure local markets with relatively limited competitor density |
-| Competitive Urban Hubs | 504 | Larger urban markets with high competitive pressure |
-| High-Deprivation Urban Core | 451 | Highly urban locations with substantially higher deprivation context |
+### 4. Market Scale
 
-Cluster stability was tested across 30 random seeds and remained highly consistent.
+Local population catchments were estimated around candidate areas.
 
-### 6. Strategic market framework
+Examples include:
 
-Three 0-100 analytical indices were created:
+- population within 3 km
+- population within 5 km
+- number of surrounding LSOAs
+
+These were transformed into a standardised:
+
+**Candidate Market Scale Index**
+
+---
+
+### 5. Standardised Screening Indicators
+
+Three main indicators were constructed on a 0–100 scale:
 
 - **Market Scale Index**
-- **Competitive Pressure Index**
-- **Deprivation Context Index**
+- **Greggs Coverage Gap Index**
+- **Selected-Chain Activity Index**
 
-Market Scale and Competitive Pressure were split at their median thresholds to create four strategic contexts:
+These form the core evidence used for expansion screening.
 
-| Strategic context | Stores | Interpretation |
-|---|---:|---|
-| Defend & Differentiate | 475 | Larger markets with high competitive pressure |
-| Local Coverage | 473 | Smaller/local markets with lower competitive pressure |
-| Competitive Exposure | 400 | Smaller markets with comparatively high competitive pressure |
-| Growth Benchmark Context | 398 | Larger markets with comparatively lower competitive pressure |
+---
 
-These labels are **analytical contexts rather than sales or profit forecasts**.
+## Multi-Scenario Opportunity Screening
 
-## Key Findings
+A single weighting scheme can produce fragile rankings.
 
-- **77.1%** of UK Greggs stores have a selected major competitor within **500 m**.
-- **85.4%** have a selected major competitor within **1 km**.
-- The median nearest selected competitor is approximately **79 m** across the UK network.
-- Costa Coffee and Subway show the highest spatial overlap with Greggs among the six selected competitor brands.
-- **45.4%** of English Greggs stores are located in IMD deciles **1-3**, compared with **15.2%** in deciles **8-10**.
-- Urban English locations have a substantially higher mean IMD score than rural locations.
-- Urban stores also experience denser local competition than rural stores.
-- The largest K-Means segment is **Lower-Competition Local Markets** with **791 stores**.
-- Among local authorities with at least 10 Greggs stores, **Trafford** has the highest Growth Benchmark Context share at **58.3% (7 of 12 stores)**.
+To reduce dependence on one strategic assumption, three scenarios were tested:
 
-## Power BI Dashboard
+### Balanced Growth
 
-The final reporting layer is a four-page Power BI dashboard built from the validated master dataset.
+Balances:
 
-### 1. UK Network Overview
+- market scale
+- Greggs coverage gap
+- selected-chain activity
 
-Shows the full UK store footprint, country distribution, nearest competitor brands and overall competition environment.
+### Coverage-Led
 
-![UK Network Overview](outputs/dashboard/01_uk_network_overview.png)
+Places greater emphasis on locations with stronger network coverage gaps.
 
-### 2. England Socioeconomic Profile
+### Market-Led
 
-Explores deprivation, urban/rural context, local-authority patterns and representation across IMD groups.
+Places greater emphasis on market size and commercial activity.
 
-![England Socioeconomic Profile](outputs/dashboard/02_england_socioeconomic_profile.png)
+---
 
-### 3. Competition Intelligence
+## Scenario Robustness
 
-Analyses competitor density, proximity bands, dominant competitors, brand overlap and urban/rural competition intensity.
+The candidate rankings were compared across all three scenarios.
 
-![Competition Intelligence](outputs/dashboard/03_competition_intelligence.png)
+Among the:
 
-### 4. Strategic Market Intelligence
+| Ranking Group | In All 3 Scenarios | In At Least 2 |
+|---|---:|---:|
+| Top 20 | 12 | 20 |
+| Top 50 | 35 | 50 |
+| Top 100 | 76 | 99 |
 
-Connects K-Means segmentation with the strategic market matrix, action distribution, segment-level action mix and local-authority benchmark context.
+This suggests that the strongest candidate markets are not dependent on a single weighting configuration.
 
-![Strategic Market Intelligence](outputs/dashboard/04_strategic_market_intelligence.png)
+---
 
-The Power BI file is available at:
+## Spatial De-duplication
 
-`powerbi/Greggs_Growth_Intelligence_System.pbix`
+Neighbouring LSOAs can represent the same wider commercial market.
+
+To avoid recommending multiple nearby areas as separate opportunities, spatial de-duplication was applied.
+
+The primary assumption uses a:
+
+**5 km minimum separation**
+
+Sensitivity testing produced:
+
+| Minimum Separation | Distinct Markets Retained |
+|---|---:|
+| 3 km | 342 |
+| 5 km | 266 |
+| 7.5 km | 234 |
+
+The final system therefore uses:
+
+**266 spatially distinct candidate markets**
+
+---
+
+## Existing-Network Compatibility
+
+Candidate markets were compared with the characteristics of existing English Greggs stores.
+
+Existing-store clustering used:
+
+- deprivation
+- population
+- competitor activity
+
+Three existing-network market segments were identified:
+
+- Competitive Urban Hubs
+- Lower-Competition Local Markets
+- High-Deprivation Urban Core
+
+Candidate markets were then assigned an:
+
+**Existing-Network Compatibility Score**
+
+This is used as supporting evidence rather than as the sole ranking criterion.
+
+---
+
+## Candidate Market Tiers
+
+The 266 spatially distinct candidate markets are organised into four screening tiers:
+
+- **Priority**
+- **Secondary**
+- **Watchlist**
+- **Longlist**
+
+The final Priority tier contains:
+
+**20 markets across 19 local authorities**
+
+---
+
+## Top Priority Markets
+
+The final shortlist begins with markets including:
+
+1. East Riding of Yorkshire
+2. Castle Point
+3. Welwyn Hatfield
+4. Wyre
+5. Stoke-on-Trent
+6. Wigan
+7. Plymouth
+8. Reigate and Banstead
+9. Walsall
+10. North Kesteven
+
+The dashboard allows individual markets to be selected and inspected using:
+
+- population within 5 km
+- nearest Greggs distance
+- selected competitors within 3 km
+- scenario scores
+- evidence profile
+- market scale
+- coverage gap
+- selected-chain activity
+
+---
+
+## Model Quality Assurance
+
+A dedicated QA framework tests the expansion pipeline.
+
+The final model achieved:
+
+> **16 / 16 QA checks passed**
+
+Checks include:
+
+- candidate universe completeness
+- unique LSOA identifiers
+- coordinate completeness
+- eligibility-rule compliance
+- competitor evidence completeness
+- scenario-weight validation
+- scenario-score completeness
+- spatial separation compliance
+- shortlist size
+- shortlist uniqueness
+- geographic diversity
+- scenario consensus
+- network-compatibility diagnostics
+
+---
+
+## Geographic Stability
+
+The geographic composition of the final shortlist was also tested under alternative spatial assumptions.
+
+Authority-level Jaccard similarity:
+
+| Separation Assumption | Similarity vs 5 km |
+|---|---:|
+| 3 km | 0.67 |
+| 5 km | 1.00 |
+| 7.5 km | 1.00 |
+
+The shortlist therefore shows strong geographic stability around the primary spatial assumption.
+
+---
+
+# Power BI Dashboard
+
+The final Power BI report contains four decision-intelligence pages.
+
+## 1. Growth Opportunity Overview
+
+Provides an executive view of the entire expansion funnel:
+
+- 33,755 areas screened
+- 1,686 eligible areas
+- 266 distinct markets
+- 20 priority markets
+- scenario comparison
+- market-scale vs coverage-gap analysis
+
+![Growth Opportunity Overview](outputs/dashboard/01_growth_opportunity_overview.png)
+
+---
+
+## 2. Top Expansion Markets
+
+Interactive analysis of the final 20 markets including:
+
+- selectable priority market
+- Top 20 comparison table
+- England map
+- scenario-score breakdown
+- evidence-profile breakdown
+
+![Top Expansion Markets](outputs/dashboard/02_top_expansion_markets.png)
+
+---
+
+## 3. Candidate Market Intelligence
+
+Explores the full universe of 266 candidate markets.
+
+Includes:
+
+- market scale vs coverage gap
+- opportunity-tier distribution
+- geographic candidate-market map
+- existing-network compatibility
+- local authorities with multiple candidate markets
+
+![Candidate Market Intelligence](outputs/dashboard/03_candidate_market_intelligence.png)
+
+---
+
+## 4. Expansion Model & QA
+
+Provides transparency around model robustness.
+
+Includes:
+
+- 16/16 QA status
+- spatial sensitivity
+- scenario robustness
+- geographic stability
+- QA inspection table
+- methodology and limitations
+
+![Expansion Model & QA](outputs/dashboard/04_expansion_model_qa.png)
+
+---
+
+## Technology Stack
+
+### Data Analysis
+- Python
+- Pandas
+- NumPy
+- SciPy
+- scikit-learn
+
+### Geospatial Analysis
+- OpenStreetMap
+- geographic coordinates
+- distance calculations
+- spatial-radius analysis
+- spatial market de-duplication
+
+### Statistical Analysis
+- Welch's t-test
+- Mann-Whitney U
+- Spearman correlation
+- Kruskal-Wallis
+- effect-size analysis
+
+### Machine Learning
+- K-Means clustering
+- clustering diagnostics
+- stability testing
+- existing-network similarity analysis
+
+### Business Intelligence
+- Power BI
+- DAX
+- interactive filtering
+- Azure Maps
+- executive dashboard design
+
+### Development
+- Google Colab
+- Jupyter Notebook
+- Git
+- GitHub
+
+---
 
 ## Repository Structure
 
@@ -171,106 +490,34 @@ greggs-growth-intelligence-system/
 │       └── competitor_stores_final.csv
 │
 ├── notebooks/
-│   └── Greggs_Growth_Intelligence_System.ipynb
+│   └── main analysis notebook
+│
+├── exports/
+│   ├── POWERBI_existing_and_candidate_map.csv
+│   ├── POWERBI_expansion_candidate_markets.csv
+│   ├── POWERBI_expansion_kpis.csv
+│   ├── POWERBI_expansion_model_qa.csv
+│   ├── POWERBI_scenario_definitions.csv
+│   └── POWERBI_top20_expansion_markets.csv
 │
 ├── outputs/
 │   ├── dashboard/
-│   │   ├── 01_uk_network_overview.png
-│   │   ├── 02_england_socioeconomic_profile.png
-│   │   ├── 03_competition_intelligence.png
-│   │   └── 04_strategic_market_intelligence.png
+│   │   ├── 01_growth_opportunity_overview.png
+│   │   ├── 02_top_expansion_markets.png
+│   │   ├── 03_candidate_market_intelligence.png
+│   │   └── 04_expansion_model_qa.png
+│   │
+│   ├── archive/
+│   │   └── original dashboard screenshots
+│   │
 │   ├── figures/
 │   └── tables/
 │
 ├── powerbi/
-│   └── Greggs_Growth_Intelligence_System.pbix
+│   ├── Greggs_Growth_Intelligence_System.pbix
+│   └── archive/
+│       └── original Power BI version
 │
+├── .gitignore
 ├── README.md
-├── requirements.txt
-└── .gitignore
-```
-
-## Technology Stack
-
-**Data & analysis**
-
-- Python
-- pandas
-- NumPy
-- SciPy
-- scikit-learn
-- GeoPandas / geospatial processing
-
-**Data sources and geography**
-
-- OpenStreetMap / OSMnx
-- ONS Postcode Directory
-- English Indices of Deprivation 2025
-
-**Visualisation and reporting**
-
-- Matplotlib
-- Power BI
-- DAX
-
-**Development**
-
-- Google Colab / Jupyter
-- GitHub
-
-## Reproducibility
-
-Install the Python dependencies with:
-
-```bash
-pip install -r requirements.txt
-```
-
-Then open the notebook in `notebooks/` and run the workflow in sequence.
-
-The repository is intentionally optimised for portfolio review. Large raw source files and many intermediate pipeline artefacts are excluded, while the curated final datasets, analysis outputs, notebook and dashboard are retained.
-
-The notebook contains snapshot/reuse logic so previously collected OpenStreetMap data can be reused instead of being re-queried unnecessarily.
-
-## Data Quality and Validation
-
-The final Power BI master dataset passed a dedicated quality audit covering:
-
-- unique store identifiers
-- complete coordinates
-- plausible UK geographic bounds
-- UK nation totals
-- complete England analytical fields
-- valid IMD deciles
-- England-only strategic scope
-- consistency between 500 m and 1 km competition features
-- strategic-action counts
-- required Power BI fields
-- successful CSV reload validation
-
-## Limitations
-
-- OpenStreetMap is community-maintained and may contain missing, delayed or inconsistent records.
-- Competitor analysis is limited to six selected brands and is not an exhaustive representation of every local competitor.
-- English deprivation data applies only to England; Scotland, Wales and Northern Ireland are retained for UK network and competition analysis but not socioeconomic or strategic modelling.
-- The project does not use internal Greggs sales, revenue, margin, footfall, property-cost or customer-level data.
-- Strategic segments and actions are descriptive analytical frameworks, not validated predictions of store performance or future expansion success.
-- Statistical associations should not be interpreted as causal relationships.
-
-## What This Project Demonstrates
-
-This project demonstrates an end-to-end data science workflow covering:
-
-**data acquisition → cleaning → geospatial engineering → official-data enrichment → EDA → statistical inference → unsupervised machine learning → model stability testing → business interpretation → Power BI communication**
-
-The emphasis is not only on producing models, but on translating analytical outputs into clear, decision-oriented business intelligence.
-
-## Author
-
-**Pranav Panneerselvam**  
-MSc Data Science, Newcastle University  
-GitHub: [Pranav-P108](https://github.com/Pranav-P108)
-
----
-
-*Independent portfolio analysis using publicly available data. Greggs and other brand names are used only to describe the subjects of the analysis.*
+└── requirements.txt
