@@ -480,7 +480,7 @@ Includes:
 ---
 
 ## Repository Structure
-
+```text
 greggs-growth-intelligence-system/
 │
 ├── data/
@@ -520,7 +520,7 @@ greggs-growth-intelligence-system/
 ├── .gitignore
 ├── README.md
 └── requirements.txt
-
+```
 
 ## Key Analytical Takeaways
 
