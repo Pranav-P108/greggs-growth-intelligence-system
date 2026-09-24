@@ -481,7 +481,6 @@ Includes:
 
 ## Repository Structure
 
-```text
 greggs-growth-intelligence-system/
 │
 ├── data/
@@ -523,25 +522,80 @@ greggs-growth-intelligence-system/
 └── requirements.txt
 
 
-### One thing before you commit
+## Key Analytical Takeaways
 
-Check the four screenshot filenames inside `outputs/dashboard/`.
+The project demonstrates that expansion screening can be treated as a structured decision-intelligence problem rather than simply identifying locations with large populations.
 
-If they are exactly:
+The final framework combines:
 
-- `01_growth_opportunity_overview.png`
-- `02_top_expansion_markets.png`
-- `03_candidate_market_intelligence.png`
-- `04_expansion_model_qa.png`
+**market size + existing-network gaps + competitor activity + scenario robustness + spatial independence + network compatibility**
 
-then paste this README **exactly as it is**.
+to progressively reduce more than 33,000 geographic areas into a manageable shortlist for further commercial investigation.
 
-If your screenshot names are slightly different, tell me the four filenames and I’ll give you the corrected image links.
+The strongest result is not simply the identification of 20 locations.
 
-Also rename `Readme.md` → **`README.md`** while saving if GitHub allows it.
+It is the creation of a **transparent and auditable process explaining why those markets survived the screening process.**
 
-Suggested commit message:
+---
 
-**`Update README for expansion intelligence system`**
+## Limitations
 
-Once you save it, send me the **rendered GitHub README page**, not the editor. I want to check that all four dashboard images render properly and that nothing looks broken before we move to the LinkedIn post. 
+This project intentionally avoids presenting the shortlisted markets as confirmed expansion recommendations.
+
+Important limitations include:
+
+- OpenStreetMap is community-maintained and is not an official Greggs store register.
+- Only a selected group of major food-to-go competitors is included.
+- The expansion model does not contain Greggs internal sales or transaction data.
+- Rent, property availability, site size and lease costs are not available.
+- Footfall and transport-flow data are not included.
+- Local profitability and cannibalisation cannot be directly measured.
+- English deprivation measures are not directly transferable to the rest of the UK.
+- Competitor proximity does not prove competitive impact or commercial demand.
+- Candidate-market scores are analytical screening tools rather than revenue or profit forecasts.
+
+A real commercial site-selection process would combine this framework with internal performance data, property economics, pedestrian and transport flows, customer behaviour and operational feasibility.
+
+---
+
+## Future Development
+
+Potential extensions include:
+
+- store-level sales and transaction data
+- pedestrian footfall
+- commuting and transport accessibility
+- commercial rent
+- property availability
+- drive-time catchments
+- demographic segmentation
+- delivery-platform demand
+- cannibalisation modelling
+- supervised site-performance modelling
+- optimisation of multi-store expansion portfolios
+
+---
+
+## Project Purpose
+
+This project was developed as an independent data science portfolio project demonstrating:
+
+- geospatial analytics
+- statistical analysis
+- machine learning
+- business intelligence
+- scenario modelling
+- data quality assurance
+- location intelligence
+- decision-focused communication
+
+The emphasis is not only on producing analysis, but on converting multiple public datasets into a transparent business decision-support system.
+
+---
+
+## Author
+
+**Pranav Panneerselvam**  
+MSc Data Science — Newcastle University
+
+Interested in Data Science, Data Analytics, Business Intelligence and decision-intelligence opportunities in the UK.
